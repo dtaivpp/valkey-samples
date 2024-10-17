@@ -1,0 +1,11 @@
+services:
+  valkey-1:
+    image: valkey/valkey:latest
+    command: valkey-server --port 6379 --requirepass ${VALKEY_PASSWORD}
+    volumes:
+      - ./data:/data
+    network_mode: host
+
+volumes:
+  data:
+    driver: local
